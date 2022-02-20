@@ -43,10 +43,10 @@ public class InversionCount {
 
   private static List<Integer> loadIntegerList() {
     final List<Integer> integerList = new LinkedList<>();
-    try (Stream<String> stream = Files.lines(Paths.get(Resources.getResource("integer-array.txt").getPath()))) {
+    try (Stream<String> stream = Files.lines(Paths.get(Resources.getResource("inversion-count-number-list.txt").getPath()))) {
       stream.forEach(line -> integerList.add(Integer.valueOf(line)));
     } catch (IOException e) {
-      System.err.println("Problem reading 'integer-array.txt'");
+      System.err.println("Problem reading 'inversion-count-number-list.txt'");
     }
     return integerList;
   }
