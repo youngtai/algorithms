@@ -1,6 +1,5 @@
-package randomContraction;
+package minimumCut;
 
-import minimumCut.KargerRandomContraction;
 import minimumCut.KargerRandomContraction.Edge;
 import org.junit.jupiter.api.Test;
 
