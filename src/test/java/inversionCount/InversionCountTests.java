@@ -1,4 +1,4 @@
-package inversion.count;
+package inversionCount;
 
 import org.junit.jupiter.api.Test;
 

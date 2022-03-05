@@ -1,4 +1,4 @@
-package inversion.count;
+package inversionCount;
 
 import com.google.common.io.Resources;
 
