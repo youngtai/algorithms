@@ -26,7 +26,7 @@ public class KargerRandomContraction {
     List<Integer> cutCounts = new ArrayList<>();
     KargerRandomContraction krc = new KargerRandomContraction();
     for (int iterationIndex = 0; iterationIndex < 100; iterationIndex++) {
-      final List<List<Integer>> graph = loadGraph("kargerMinCut-adjacencyList.txt");
+      final List<List<Integer>> graph = loadGraph("kargerMinCut/kargerMinCut-adjacencyList.txt");
       krc.getMinCutCandidate(graph);
       final int cutCount = (graph.get(0).size() + graph.get(0).size() - 2) / 2;
       cutCounts.add(cutCount);
@@ -40,7 +40,7 @@ public class KargerRandomContraction {
   /**
    * while there are more than 2 vertices
    *   pick a remaining edge (u,v) uniformly at random
-   *   merge ("contract") u and v into a single vertex
+   *   merge ("contract") u and v into a single node
    *   remove self-loops
    * return cut represented by final 2 vertices
    */

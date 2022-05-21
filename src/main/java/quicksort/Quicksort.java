@@ -4,6 +4,7 @@ import com.google.common.io.Resources;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -135,7 +136,9 @@ public class Quicksort {
 
   private static List<Integer> loadIntegerList() {
     final List<Integer> integerList = new LinkedList<>();
-    try (Stream<String> stream = Files.lines(Paths.get(Resources.getResource("quicksort-number-list.txt").getPath()))) {
+    System.out.println(Paths.get(Resources.getResource("quicksort-number-list.txt")
+            .getPath()));
+    try (Stream<String> stream = Files.lines(Path.of("C:\\Users\\young\\dev\\algorithms\\src\\main\\resources\\quicksort-number-list.txt"))) {
       stream.forEach(line -> integerList.add(Integer.valueOf(line)));
     } catch (IOException e) {
       System.err.println("Problem reading 'inversion-count-number-list.txt'");
