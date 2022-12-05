@@ -3,7 +3,6 @@ package quicksort;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.testng.AssertJUnit;
 
 import java.util.Arrays;
 import java.util.List;
