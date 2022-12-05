@@ -1,0 +1,42 @@
+Suppose you implement the functionality of a priority queue using a sorted array (e.g., from biggest to smallest). What is the worst-case running time of Insert and Extract-Min, respectively? (Assume that you have a large enough array to accommodate the Insertions that you face.)
+
+O(n) and O(1)
+
+
+Suppose you implement the functionality of a priority queue using an unsorted array. What is the worst-case running time of Insert and Extract-Min, respectively? (Assume that you have a large enough array to accommodate the Insertions that you face.)
+
+O(1) and O(n)
+Since it's an unsorted array backing the priority queue, you just add the element to the end for insert, so O(1). Since it's backed by an unsorted array, you have to traverse the entire array to find the min, so O(n).
+
+
+You are given a heap with n elements that supports Insert and Extract-Min. Which of the following tasks can you achieve in O(logn) time?
+
+(x) Find the median of the elements stored in the heap.
+(x) Find the largest element stored in the heap.
+(O) Find the fifth-smallest element stored in the heap.
+(x) None of these.
+
+
+You are given a binary tree (via a pointer to its root) with n nodes. As in lecture, let size(x) denote the number of nodes in the subtree rooted at the node x. How much time is necessary and sufficient to compute size(x) for every node x of the tree?
+
+O(n)
+Do a depth-first traversal starting at the root node. For every node x, size(x) = size(left subtree of x) + size(right subtree of x).
+
+
+Suppose we relax the third invariant of red-black trees to the property that there are no three reds in a row. That is, if a node and its parent are both red, then both of its children must be black. Call these relaxed red-black trees. Which of the following statements is not true?
+
+Invariants as given in lecture:
+ 1. each node red or black
+ 2. root is black
+ 3. No two reds in a row <=> red nodes have only black children
+ 4. every root-Null path has the same number of black nodes
+
+ (false) every binary search tree can be turned into a relaxed red-black tree (via some coloring of the nodes as black or red)
+    Counter-example: Make an imbalanced binary tree with one subtree from the root have height larger than the right subtree by 3. Then You can't color the nodes so that it satisfies invariant 4.
+ (true) there is a relaxed red-black tree that is not also a red-black tree
+    Example: It's true because relaxed r-b tree is a looser constraint. I mean, just take any relaxed r-b tree that has two reds in a row. Then by definition it is not a r-b tree.
+ (true) the height of every relaxed red-black tree with n nodes is O(logn)
+    False, it can get pretty imbalanced if you have all of the two-reds-in-a-row on one subtree of the root, and the other follows b-b-b-... because of 4.
+    Apparently this is true and is 3log(n+1)... I totally don't see this. The answer help says that by following the proof in lecture for r-b trees, we can get that.
+ (True) every red-black tree is also a relaxed red-black tree
+    True. Realize that a relaxed r-b tree doesn't _need_ to have two consecutive red nodes. So by definition, every red-black tree satisfies the constraints of a relaxed r-b tree.
