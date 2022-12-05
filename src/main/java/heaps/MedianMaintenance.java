@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
-import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -40,23 +39,7 @@ public class MedianMaintenance {
 
   public int getMedianK(PriorityQueue<Integer> low, PriorityQueue<Integer> high, int x_k) {
     // Add x_k to the correct heap
-    if (low.isEmpty() && high.isEmpty()) {
-      low.add(x_k);
-    } else {
-      if (Objects.isNull(low.peek())) {
-        if (x_k >= high.peek()) {
-          high.add(x_k);
-        } else {
-          low.add(x_k);
-        }
-      } else {
-        if (x_k <= low.peek()) {
-          low.add(x_k);
-        } else {
-          high.add(x_k);
-        }
-      }
-    }
+    addToCorrectHeap(low, high, x_k);
 
     // Check whether heaps are balanced
     rebalanceHeaps(low, high);
@@ -72,6 +55,14 @@ public class MedianMaintenance {
       median_k = low.peek();
     }
     return median_k;
+  }
+
+  private void addToCorrectHeap(PriorityQueue<Integer> low, PriorityQueue<Integer> high, int x_k) {
+    if (low.isEmpty() || x_k <= low.peek()) {
+      low.add(x_k);
+    } else {
+      high.add(x_k);
+    }
   }
 
   public void rebalanceHeaps(PriorityQueue<Integer> low, PriorityQueue<Integer> high) {
